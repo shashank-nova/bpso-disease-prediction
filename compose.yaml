@@ -1,0 +1,52 @@
+services:
+  trainer:
+    build: .
+    command: ["python", "scripts/train_model.py", "--config", "configs/reduced.yaml", "--dataset", "breast_cancer", "--output", "/models/disease_model.joblib"]
+    volumes:
+      - bpso_models:/models
+  api:
+    build: .
+    command: ["uvicorn", "bpso_fs.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      BPSO_MODEL: /models/disease_model.joblib
+    volumes:
+      - bpso_models:/models:ro
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      trainer:
+        condition: service_completed_successfully
+  showcase:
+    build: .
+    command: ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    environment:
+      BPSO_API_URL: http://api:8000
+      BPSO_API_DOCS_URL: ${BPSO_API_DOCS_URL:-http://localhost:8000/docs}
+      BPSO_RESULTS_DIR: /results
+    volumes:
+      - ./results_experiment:/results:ro
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+  research:
+    profiles: ["research"]
+    build: .
+    entrypoint: ["python", "scripts/run_experiments.py"]
+    command: ["--config", "configs/reduced.yaml", "--dataset", "all", "--n-jobs", "2", "--results-dir", "/results"]
+    volumes:
+      - ./results_experiment:/results
+      - ./data/raw:/app/data/raw
+      - ./assets:/app/assets
+      - ./paper/tables:/paper/tables
+      - ./paper/figures:/paper/figures
+
+volumes:
+  bpso_models:
