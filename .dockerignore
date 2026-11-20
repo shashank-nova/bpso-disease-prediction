@@ -1,0 +1,38 @@
+# Keep the build context limited to files copied by Dockerfile
+.git
+.github
+.vscode
+.idea
+
+# Local Python environments and caches
+.venv
+venv
+__pycache__
+.pytest_cache
+.ruff_cache
+.mypy_cache
+*.py[cod]
+*.egg-info
+
+# Local credentials, raw data, model artifacts, and generated runs
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+.aws
+.ssh
+data/raw
+data/processed
+models
+results
+results_experiment
+results_quick
+logs
+*.log
+
+# Research/report sources are not needed in the runtime image
+paper
+notebooks
+tests

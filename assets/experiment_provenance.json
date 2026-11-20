@@ -1,0 +1,217 @@
+{
+  "config": {
+    "alpha_sweep": {
+      "alphas": [
+        0.8,
+        0.9,
+        0.95,
+        0.99
+      ],
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb",
+        "xgb"
+      ],
+      "enabled": true,
+      "n_seeds": 2
+    },
+    "bpso": {
+      "c1": 2.0,
+      "c2": 2.0,
+      "early_stopping_patience": null,
+      "empty_subset": "repair",
+      "inertia": "linear",
+      "init_prob": 0.5,
+      "n_iterations": 50,
+      "n_jobs": 1,
+      "n_particles": 20,
+      "transfer_function": "sigmoid",
+      "v_max": 6.0,
+      "w": 0.7298,
+      "w_max": 0.9,
+      "w_min": 0.4
+    },
+    "classifiers": [
+      "logreg",
+      "svm",
+      "rf",
+      "knn",
+      "nb",
+      "xgb"
+    ],
+    "experiment": {
+      "datasets": [
+        "breast_cancer",
+        "pima_diabetes",
+        "heart_cleveland",
+        "ilpd",
+        "ckd"
+      ],
+      "n_jobs": -1,
+      "n_seeds": 5,
+      "name": "all_datasets",
+      "outer_folds": 10,
+      "results_dir": "results",
+      "seed_offset": 0
+    },
+    "fitness": {
+      "alpha": 0.99,
+      "estimator": "logreg",
+      "inner_folds": 5,
+      "metric": "accuracy"
+    },
+    "ga": {
+      "crossover_rate": 0.9,
+      "mutation_rate": null,
+      "n_elite": 1,
+      "tournament_size": 3
+    },
+    "methods": [
+      "all",
+      "bpso",
+      "ga",
+      "mi_k",
+      "mi_cv",
+      "anova_k",
+      "anova_cv",
+      "rfe_k",
+      "l1",
+      "random_k"
+    ],
+    "reporting": {
+      "figures_dir": "paper/figures",
+      "primary_metric": "f1",
+      "reference_method": "bpso",
+      "report_classifier": "auto",
+      "tables_dir": "paper/tables",
+      "tuning_scoring": "roc_auc"
+    },
+    "tune_classifiers": false,
+    "use_xgboost": true
+  },
+  "datasets": [
+    {
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb"
+      ],
+      "data_source": "sklearn.datasets.load_breast_cancer",
+      "dataset": "breast_cancer",
+      "library_versions": {
+        "cpu_count": "14",
+        "joblib": "1.6.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.4.6",
+        "pandas": "3.1.1",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "python": "3.11.18",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1"
+      },
+      "timestamp_utc": "2026-11-20T22:03:55.484787+00:00",
+      "wall_time_seconds": 865.3945722579956
+    },
+    {
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb"
+      ],
+      "data_source": "cache:/app/data/raw/chronic_kidney_disease.arff",
+      "dataset": "ckd",
+      "library_versions": {
+        "cpu_count": "14",
+        "joblib": "1.6.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.4.6",
+        "pandas": "3.1.1",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "python": "3.11.18",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1"
+      },
+      "timestamp_utc": "2026-11-20T22:40:56.209355+00:00",
+      "wall_time_seconds": 792.1385908126831
+    },
+    {
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb"
+      ],
+      "data_source": "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data",
+      "dataset": "heart_cleveland",
+      "library_versions": {
+        "cpu_count": "14",
+        "joblib": "1.6.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.4.6",
+        "pandas": "3.1.1",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "python": "3.11.18",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1"
+      },
+      "timestamp_utc": "2026-11-20T22:20:04.528979+00:00",
+      "wall_time_seconds": 663.2280125617981
+    },
+    {
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb"
+      ],
+      "data_source": "https://archive.ics.uci.edu/ml/machine-learning-databases/00225/Indian%20Liver%20Patient%20Dataset%20(ILPD).csv",
+      "dataset": "ilpd",
+      "library_versions": {
+        "cpu_count": "14",
+        "joblib": "1.6.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.4.6",
+        "pandas": "3.1.1",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "python": "3.11.18",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1"
+      },
+      "timestamp_utc": "2026-11-20T22:27:43.184525+00:00",
+      "wall_time_seconds": 457.2944414615631
+    },
+    {
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb"
+      ],
+      "data_source": "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv",
+      "dataset": "pima_diabetes",
+      "library_versions": {
+        "cpu_count": "14",
+        "joblib": "1.6.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.4.6",
+        "pandas": "3.1.1",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "python": "3.11.18",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1"
+      },
+      "timestamp_utc": "2026-11-20T22:09:00.375786+00:00",
+      "wall_time_seconds": 301.8682065010071
+    }
+  ]
+}

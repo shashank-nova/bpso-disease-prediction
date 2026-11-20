@@ -1,0 +1,59 @@
+# Full paper configuration (30 seeds x 10-fold nested CV, 30 particles x 100 iterations).
+# Expect many hours on a laptop; see README for measured runtimes and configs/reduced.yaml.
+
+experiment:
+  name: full_all_datasets
+  results_dir: results
+  datasets: [breast_cancer, pima_diabetes, heart_cleveland, ilpd, ckd]   # add ilpd / ckd if available
+  n_seeds: 30            # independent repetitions of the outer CV (BPSO is stochastic)
+  seed_offset: 0         # seeds are seed_offset .. seed_offset + n_seeds - 1
+  outer_folds: 10        # outer stratified k-fold
+  n_jobs: -1             # parallel (seed, fold) jobs
+
+fitness:                 # F(z) = alpha * (1 - P(z)) + (1 - alpha) * |z| / d
+  alpha: 0.99
+  estimator: logreg      # wrapper classifier inside the fitness: logreg | knn
+  inner_folds: 5         # inner stratified CV on the outer training fold
+  metric: accuracy       # accuracy | balanced_accuracy | f1 | roc_auc
+
+bpso:
+  n_particles: 30
+  n_iterations: 100
+  inertia: linear        # linear (w_max -> w_min) | constant (uses w)
+  w: 0.7298
+  w_max: 0.9
+  w_min: 0.4
+  c1: 2.0
+  c2: 2.0
+  v_max: 6.0
+  transfer_function: sigmoid   # sigmoid | v_shaped
+  init_prob: 0.5
+  empty_subset: repair         # repair | penalize
+  early_stopping_patience: null
+  n_jobs: 1                    # threads per BPSO run (parallelism is over (seed, fold) jobs)
+
+ga:                      # population = n_particles, generations = n_iterations (same budget)
+  crossover_rate: 0.9
+  mutation_rate: null    # null -> 1/d
+  tournament_size: 3
+  n_elite: 1
+
+methods: [all, bpso, ga, mi_k, mi_cv, anova_k, anova_cv, rfe_k, l1, random_k]
+
+classifiers: [logreg, svm, rf, knn, nb, xgb]
+use_xgboost: true        # skipped automatically if xgboost is not installed
+tune_classifiers: false  # true -> small grid search in inner CV (see models.PARAM_GRIDS)
+
+alpha_sweep:
+  enabled: true
+  alphas: [0.80, 0.90, 0.95, 0.99]
+  n_seeds: 10
+  classifiers: [logreg, svm, rf, knn, nb, xgb]
+
+reporting:
+  reference_method: bpso
+  primary_metric: f1
+  report_classifier: auto     # auto = classifier with best mean ROC-AUC for BPSO, per dataset
+  tuning_scoring: roc_auc
+  figures_dir: paper/figures
+  tables_dir: paper/tables
