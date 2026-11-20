@@ -1,4 +1,4 @@
-"""Result aggregation and export: LaTeX (booktabs) tables for IEEEtran, plus CSV and Markdown.
+"""Result aggregation and export: LaTeX (booktabs) tables for IEEEtran, plus CSV.
 
 Every number written here is computed from the files produced by
 :mod:`bpso_fs.experiment`; nothing is typed in by hand.
@@ -126,16 +126,10 @@ def _strip_tex(s: str) -> str:
 
 
 def write_table(df_tex: pd.DataFrame, df_plain: pd.DataFrame, stem: Path, **kw) -> None:
-    """Write <stem>.tex, <stem>.csv and <stem>.md."""
+    """Write <stem>.tex and <stem>.csv."""
     stem.parent.mkdir(parents=True, exist_ok=True)
     stem.with_suffix(".tex").write_text(latex_table(df_tex, **kw))
     df_plain.to_csv(stem.with_suffix(".csv"), index=False)
-    md = df_plain.copy().astype(str)
-    header = (
-        "| " + " | ".join(md.columns) + " |\n| " + " | ".join("---" for _ in md.columns) + " |\n"
-    )
-    body = "".join("| " + " | ".join(r) + " |\n" for r in md.values.tolist())
-    stem.with_suffix(".md").write_text(header + body)
 
 
 # --------------------------------------------------------------------------- aggregates
