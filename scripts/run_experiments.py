@@ -65,6 +65,11 @@ def main() -> int:
     p.add_argument("--positive-label", default=None, help="value of --target meaning 'disease'")
     p.add_argument("--name", default=None, help="dataset name for --csv")
     p.add_argument("--no-alpha-sweep", action="store_true")
+    p.add_argument(
+        "--require-all-datasets",
+        action="store_true",
+        help="fail if any requested dataset could not be loaded",
+    )
     args = p.parse_args()
 
     overrides: dict = {"experiment": {}}
@@ -88,6 +93,7 @@ def main() -> int:
         names = cfg["experiment"]["datasets"] if args.dataset == "all" else args.dataset.split(",")
         ds_cfgs = dataset_configs(Path(args.config).resolve().parent / "datasets")
         bundles = []
+        unavailable = []
         for n in (x.strip() for x in names):
             try:
                 dc = ds_cfgs.get(n, {})
@@ -100,6 +106,10 @@ def main() -> int:
                     bundles.append(load_dataset(n))
             except (DatasetUnavailableError, FileNotFoundError, KeyError) as exc:
                 logger.error("Skipping dataset '%s':\n%s", n, exc)
+                unavailable.append(n)
+        if unavailable and args.require_all_datasets:
+            logger.error("Required datasets unavailable: %s", ", ".join(unavailable))
+            return 1
     if not bundles:
         logger.error("No dataset could be loaded.")
         return 1

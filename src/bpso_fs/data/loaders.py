@@ -320,6 +320,11 @@ def load_ckd() -> DatasetBundle:
             if len(vals) >= len(attrs):
                 rows.append(vals[: len(attrs)])
     df = pd.DataFrame(rows, columns=attrs).replace({"?": np.nan, "": np.nan})
+    # The UCI ARFF spells these counts ``wbcc`` and ``rbcc``; the paper/code schema
+    # uses the common abbreviations ``wc`` and ``rc``.
+    aliases = {"wbcc": "wc", "rbcc": "rc"}
+    df = df.rename(columns=aliases)
+    attrs = [aliases.get(name, name) for name in attrs]
     target = "class"
     numeric = ["age", "bp", "sg", "al", "su", "bgr", "bu", "sc", "sod", "pot", "hemo", "pcv", "wc", "rc"]  # fmt: skip
     nominal = [c for c in attrs if c not in numeric + [target]]
