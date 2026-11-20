@@ -1,0 +1,31 @@
+Dataset,Method,d,Selected (mean ± std),Reduction %,Jaccard stability
+Breast Cancer (WDBC),All features,30,30.00 ± 0.00,0.0,1.000
+Breast Cancer (WDBC),BPSO (proposed),30,14.68 ± 2.17,51.1,0.369
+Breast Cancer (WDBC),Binary GA,30,11.98 ± 2.33,60.1,0.343
+Breast Cancer (WDBC),MI (k = BPSO),30,15.00 ± 0.00,50.0,1.000
+Breast Cancer (WDBC),MI (k by CV),30,24.34 ± 2.71,18.9,0.878
+Breast Cancer (WDBC),ANOVA-F (k = BPSO),30,15.00 ± 0.00,50.0,1.000
+Breast Cancer (WDBC),ANOVA-F (k by CV),30,24.24 ± 3.49,19.2,0.849
+Breast Cancer (WDBC),RFE (k = BPSO),30,15.00 ± 0.00,50.0,0.798
+Breast Cancer (WDBC),L1-LogReg,30,14.06 ± 3.43,53.1,0.668
+Breast Cancer (WDBC),Random (k = BPSO),30,15.00 ± 0.00,50.0,0.336
+Heart Disease (Cleveland),All features,13,13.00 ± 0.00,0.0,1.000
+Heart Disease (Cleveland),BPSO (proposed),13,8.04 ± 1.55,38.2,0.528
+Heart Disease (Cleveland),Binary GA,13,7.82 ± 1.67,39.8,0.539
+Heart Disease (Cleveland),MI (k = BPSO),13,8.00 ± 0.00,38.5,0.825
+Heart Disease (Cleveland),MI (k by CV),13,8.72 ± 2.29,32.9,0.713
+Heart Disease (Cleveland),ANOVA-F (k = BPSO),13,8.00 ± 0.00,38.5,0.991
+Heart Disease (Cleveland),ANOVA-F (k by CV),13,8.90 ± 2.31,31.5,0.764
+Heart Disease (Cleveland),RFE (k = BPSO),13,8.00 ± 0.00,38.5,0.773
+Heart Disease (Cleveland),L1-LogReg,13,11.22 ± 1.68,13.7,0.845
+Heart Disease (Cleveland),Random (k = BPSO),13,8.00 ± 0.00,38.5,0.454
+Pima Diabetes,All features,8,8.00 ± 0.00,0.0,1.000
+Pima Diabetes,BPSO (proposed),8,4.82 ± 1.04,39.8,0.606
+Pima Diabetes,Binary GA,8,4.78 ± 1.07,40.2,0.601
+Pima Diabetes,MI (k = BPSO),8,5.00 ± 0.00,37.5,0.787
+Pima Diabetes,MI (k by CV),8,5.68 ± 1.86,29.0,0.660
+Pima Diabetes,ANOVA-F (k = BPSO),8,5.00 ± 0.00,37.5,0.883
+Pima Diabetes,ANOVA-F (k by CV),8,5.62 ± 2.21,29.8,0.633
+Pima Diabetes,RFE (k = BPSO),8,5.00 ± 0.00,37.5,0.844
+Pima Diabetes,L1-LogReg,8,6.52 ± 1.59,18.5,0.753
+Pima Diabetes,Random (k = BPSO),8,5.00 ± 0.00,37.5,0.467

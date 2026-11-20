@@ -1,0 +1,4 @@
+name: ilpd
+type: builtin
+enabled: false   # optional; add to experiment.datasets to use
+description: Indian Liver Patient Dataset (583 x 10), UCI; 1 = liver patient.

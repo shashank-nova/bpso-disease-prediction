@@ -1,0 +1,5 @@
+{
+  "breast_cancer": "svm",
+  "heart_cleveland": "logreg",
+  "pima_diabetes": "logreg"
+}

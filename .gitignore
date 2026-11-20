@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+results/*/runs/
+results/**/raw_results.csv
+results/**/predictions*
+results/run.log
+.ipynb_checkpoints/
+results_quick/

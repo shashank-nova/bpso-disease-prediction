@@ -1,0 +1,8 @@
+# Template for your own dataset. Put the name in experiment.datasets (or pass --dataset my_dataset).
+name: my_dataset
+type: csv
+path: data/raw/my_dataset.csv
+target: Outcome          # target column
+positive_label: null     # value meaning "disease"; null if the target is already 0/1
+categorical: null        # list of nominal columns; null = infer from text columns
+drop: []                 # e.g. [patient_id]

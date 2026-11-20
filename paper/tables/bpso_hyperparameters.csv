@@ -1,0 +1,13 @@
+Parameter,Value
+Swarm size (particles),20
+Iterations T,50
+Inertia weight w,linear 0.9 \rightarrow 0.4
+"Acceleration c_1, c_2","2.0, 2.0"
+Velocity clamp v_{\max,6.0
+Transfer function,S-shaped (sigmoid)
+Initial bit probability,0.5
+Empty-subset handling,repair
+Fitness weight \alpha,0.99
+Wrapper classifier in fitness,Logistic regression
+Inner CV folds / score P(z),5 / accuracy
+Outer CV,stratified 10-fold \times 5 seeds

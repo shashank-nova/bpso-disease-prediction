@@ -1,0 +1,23 @@
+\begin{table}[!t]
+\centering
+\caption{Average Friedman ranks by F1 over 18 dataset--classifier blocks (1 = best). Friedman $\chi^2$ = 81.87, $p$ = 6.85e-14; Nemenyi CD = 3.19.}
+\label{tab:friedman}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lr}
+\toprule
+\textbf{Method} & \textbf{Average rank} \\
+\midrule
+All features & 3.06 \\
+L1-LogReg & 3.11 \\
+MI (k by CV) & 3.56 \\
+ANOVA-F (k by CV) & 3.89 \\
+RFE (k = BPSO) & 4.94 \\
+ANOVA-F (k = BPSO) & 5.83 \\
+MI (k = BPSO) & 6.28 \\
+BPSO (proposed) & 7.22 \\
+Binary GA & 7.89 \\
+Random (k = BPSO) & 9.22 \\
+\bottomrule
+\end{tabular}
+\end{table}

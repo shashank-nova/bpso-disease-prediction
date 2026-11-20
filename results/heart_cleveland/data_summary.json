@@ -1,0 +1,50 @@
+{
+  "name": "heart_cleveland",
+  "n_samples": 303,
+  "n_features": 13,
+  "n_numeric": 9,
+  "n_categorical": 4,
+  "n_positive": 139,
+  "n_negative": 164,
+  "positive_rate": 0.45874587458745875,
+  "n_missing_cells": 6,
+  "n_rows_with_missing": 6,
+  "missing_per_feature": {
+    "ca": 4,
+    "thal": 2
+  },
+  "feature_names": [
+    "age",
+    "sex",
+    "trestbps",
+    "chol",
+    "fbs",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "ca",
+    "cp",
+    "restecg",
+    "slope",
+    "thal"
+  ],
+  "numeric_cols": [
+    "age",
+    "sex",
+    "trestbps",
+    "chol",
+    "fbs",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "ca"
+  ],
+  "categorical_cols": [
+    "cp",
+    "restecg",
+    "slope",
+    "thal"
+  ],
+  "source": "https://raw.githubusercontent.com/rashida048/Datasets/master/Heart.csv",
+  "description": "UCI Heart Disease (Cleveland); nominal cp/restecg/slope/thal one-hot encoded in the final models; 1 = disease (num > 0)"
+}

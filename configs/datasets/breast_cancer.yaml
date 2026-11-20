@@ -1,0 +1,4 @@
+name: breast_cancer
+type: builtin
+enabled: true
+description: Wisconsin Diagnostic Breast Cancer (569 x 30), bundled with scikit-learn; 1 = malignant.

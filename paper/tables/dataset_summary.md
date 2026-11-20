@@ -1,0 +1,5 @@
+| Dataset | Samples | Features | Positive (disease) | Missing cells | Rows w/ missing |
+| --- | --- | --- | --- | --- | --- |
+| Breast Cancer (WDBC) | 569 | 30 | 212 (37.3%) | 0 | 0 |
+| Heart Disease (Cleveland) | 303 | 13 | 139 (45.9%) | 6 | 6 |
+| Pima Diabetes | 768 | 8 | 268 (34.9%) | 652 | 376 |

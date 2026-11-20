@@ -1,0 +1,11 @@
+Method,Average rank
+All features,3.056
+L1-LogReg,3.111
+MI (k by CV),3.556
+ANOVA-F (k by CV),3.889
+RFE (k = BPSO),4.944
+ANOVA-F (k = BPSO),5.833
+MI (k = BPSO),6.278
+BPSO (proposed),7.222
+Binary GA,7.889
+Random (k = BPSO),9.222

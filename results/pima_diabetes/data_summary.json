@@ -1,0 +1,42 @@
+{
+  "name": "pima_diabetes",
+  "n_samples": 768,
+  "n_features": 8,
+  "n_numeric": 8,
+  "n_categorical": 0,
+  "n_positive": 268,
+  "n_negative": 500,
+  "positive_rate": 0.3489583333333333,
+  "n_missing_cells": 652,
+  "n_rows_with_missing": 376,
+  "missing_per_feature": {
+    "Glucose": 5,
+    "BloodPressure": 35,
+    "SkinThickness": 227,
+    "Insulin": 374,
+    "BMI": 11
+  },
+  "feature_names": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "numeric_cols": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "categorical_cols": [],
+  "source": "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv",
+  "description": "Pima Indians Diabetes; zeros in Glucose/BloodPressure/SkinThickness/Insulin/BMI treated as missing; 1 = diabetes"
+}

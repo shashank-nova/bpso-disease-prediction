@@ -1,0 +1,4 @@
+name: heart_cleveland
+type: builtin
+enabled: true
+description: UCI Heart Disease, Cleveland (303 x 13); 1 = disease (num > 0); cp/restecg/slope/thal are nominal.

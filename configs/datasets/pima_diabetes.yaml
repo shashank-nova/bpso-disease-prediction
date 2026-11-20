@@ -1,0 +1,4 @@
+name: pima_diabetes
+type: builtin
+enabled: true
+description: Pima Indians Diabetes (768 x 8); zeros in Glucose/BloodPressure/SkinThickness/Insulin/BMI are missing; 1 = diabetes.

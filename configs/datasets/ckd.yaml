@@ -1,0 +1,4 @@
+name: ckd
+type: builtin
+enabled: false   # optional; UCI ships it as .rar - extract the .arff manually (see README)
+description: Chronic Kidney Disease (400 x 24), UCI; 1 = ckd.

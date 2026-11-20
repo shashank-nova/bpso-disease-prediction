@@ -1,0 +1,101 @@
+% =====================================================================
+% Methodology snippets -- these equations match src/bpso_fs/ exactly.
+% Required packages: amsmath, algorithm, algpseudocode (algorithmicx)
+%   \usepackage{amsmath}
+%   \usepackage{algorithm}
+%   \usepackage{algpseudocode}
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Fitness function  (src/bpso_fs/fitness.py :: fitness_value)
+% ---------------------------------------------------------------------
+For a selection vector $z \in \{0,1\}^d$, the fitness to be minimized is
+\begin{equation}
+F(z) = \alpha \bigl(1 - P(z)\bigr) + (1-\alpha)\,\frac{|z|}{d},
+\qquad |z| = \sum_{j=1}^{d} z_j ,
+\label{eq:fitness}
+\end{equation}
+where $P(z)\in[0,1]$ is the mean accuracy of a logistic-regression classifier
+trained on the selected features, estimated by stratified 5-fold cross-validation
+on the outer training fold only, and $\alpha \in [0,1]$ weights predictive
+performance against subset size ($\alpha = 0.99$ by default). An empty subset
+($|z| = 0$) receives the worst fitness, $F = 1$.
+
+% ---------------------------------------------------------------------
+% Velocity update  (src/bpso_fs/selectors/bpso.py :: BinaryPSO._fit)
+% ---------------------------------------------------------------------
+Each particle $i$ has a binary position $x_i^t \in \{0,1\}^d$ and a real
+velocity $v_i^t \in \mathbb{R}^d$. With personal best $p_i$ and global best $g$,
+\begin{equation}
+v_{ij}^{t+1} = w^{t} v_{ij}^{t}
+  + c_1 r_{1j}\bigl(p_{ij} - x_{ij}^{t}\bigr)
+  + c_2 r_{2j}\bigl(g_{j} - x_{ij}^{t}\bigr),
+\qquad r_{1j}, r_{2j} \sim \mathcal{U}(0,1),
+\label{eq:velocity}
+\end{equation}
+after which each component is clipped to $[-v_{\max}, v_{\max}]$.
+The inertia weight decreases linearly over the $T$ iterations,
+\begin{equation}
+w^{t} = w_{\max} - (w_{\max} - w_{\min})\,\frac{t}{T-1},
+\qquad t = 0,\ldots,T-1 .
+\label{eq:inertia}
+\end{equation}
+
+% ---------------------------------------------------------------------
+% Sigmoid transfer function and position update
+% ---------------------------------------------------------------------
+The velocity is mapped to a bit probability by the sigmoid (S-shaped)
+transfer function
+\begin{equation}
+S\bigl(v_{ij}^{t+1}\bigr) = \frac{1}{1 + e^{-v_{ij}^{t+1}}},
+\label{eq:sigmoid}
+\end{equation}
+and the new position is sampled as
+\begin{equation}
+x_{ij}^{t+1} =
+\begin{cases}
+1, & \text{if } \rho_{ij} < S\bigl(v_{ij}^{t+1}\bigr),\\
+0, & \text{otherwise},
+\end{cases}
+\qquad \rho_{ij} \sim \mathcal{U}(0,1).
+\label{eq:position}
+\end{equation}
+If a particle selects no feature, one randomly chosen bit is set to 1.
+A personal or global best is replaced when the new fitness is lower, or equal
+with fewer selected features.
+
+% Optional V-shaped variant (transfer_function: v_shaped in the config):
+% V(v) = |\tanh(v)|,  x_{ij}^{t+1} = 1 - x_{ij}^{t} if \rho_{ij} < V(v_{ij}^{t+1}), else x_{ij}^{t}.
+
+% ---------------------------------------------------------------------
+% Pseudo-code
+% ---------------------------------------------------------------------
+\begin{algorithm}[!t]
+\caption{BPSO feature selection inside one outer training fold}
+\label{alg:bpso}
+\begin{algorithmic}[1]
+\Require Training data $(X_{\text{tr}}, y_{\text{tr}})$ with $d$ features; swarm size $N$;
+  iterations $T$; $c_1, c_2, w_{\max}, w_{\min}, v_{\max}, \alpha$
+\Ensure Selected feature subset $g \in \{0,1\}^d$
+\State Fit imputation and scaling on $X_{\text{tr}}$ only
+\For{$i = 1$ \textbf{to} $N$}
+  \State $x_{ij} \gets 1$ with probability $0.5$, else $0$; \quad $v_{ij} \sim \mathcal{U}(-v_{\max}, v_{\max})$
+  \State Repair $x_i$ if $|x_i| = 0$
+  \State $p_i \gets x_i$; \quad compute $F(x_i)$ by Eq.~\eqref{eq:fitness} (inner 5-fold CV)
+\EndFor
+\State $g \gets \arg\min_i F(p_i)$ \Comment{ties: fewer features}
+\For{$t = 0$ \textbf{to} $T-1$}
+  \State $w^t \gets$ Eq.~\eqref{eq:inertia}
+  \For{$i = 1$ \textbf{to} $N$}
+    \State Update $v_i$ by Eq.~\eqref{eq:velocity}; clip to $[-v_{\max}, v_{\max}]$
+    \State Sample $x_i$ by Eqs.~\eqref{eq:sigmoid}--\eqref{eq:position}; repair if $|x_i| = 0$
+    \State Evaluate $F(x_i)$ \Comment{memoised per distinct subset}
+    \If{$F(x_i) < F(p_i)$ \textbf{or} ($F(x_i) = F(p_i)$ \textbf{and} $|x_i| < |p_i|$)}
+      \State $p_i \gets x_i$
+    \EndIf
+  \EndFor
+  \State $g \gets$ best of $\{g, p_1, \ldots, p_N\}$
+\EndFor
+\State \Return $g$
+\end{algorithmic}
+\end{algorithm}

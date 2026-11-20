@@ -1,0 +1,23 @@
+\begin{table*}[!t]
+\centering
+\caption{Test performance on Heart Disease (Cleveland) with Logistic Regression (mean $\pm$ std over 5 seeds $\times$ 10 outer folds). Best mean in bold.}
+\label{tab:results_heart_cleveland}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrccccc}
+\toprule
+\textbf{Method} & \textbf{\#Feat.} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+All features & 13.0 & \textbf{0.843} $\pm$ 0.061 & \textbf{0.863} $\pm$ 0.086 & 0.790 $\pm$ 0.105 & 0.820 $\pm$ 0.074 & 0.907 $\pm$ 0.051 \\
+BPSO (proposed) & 8.0 & 0.827 $\pm$ 0.056 & 0.838 $\pm$ 0.092 & 0.786 $\pm$ 0.096 & 0.805 $\pm$ 0.065 & 0.900 $\pm$ 0.052 \\
+Binary GA & 7.8 & 0.827 $\pm$ 0.052 & 0.849 $\pm$ 0.087 & 0.767 $\pm$ 0.088 & 0.801 $\pm$ 0.063 & 0.898 $\pm$ 0.050 \\
+MI (k = BPSO) & 8.0 & 0.838 $\pm$ 0.058 & 0.862 $\pm$ 0.085 & 0.777 $\pm$ 0.091 & 0.813 $\pm$ 0.069 & 0.905 $\pm$ 0.054 \\
+MI (k by CV) & 8.7 & 0.838 $\pm$ 0.061 & 0.858 $\pm$ 0.090 & 0.783 $\pm$ 0.091 & 0.815 $\pm$ 0.071 & 0.908 $\pm$ 0.051 \\
+ANOVA-F (k = BPSO) & 8.0 & 0.842 $\pm$ 0.059 & 0.860 $\pm$ 0.094 & \textbf{0.793} $\pm$ 0.091 & \textbf{0.820} $\pm$ 0.069 & \textbf{0.913} $\pm$ 0.050 \\
+ANOVA-F (k by CV) & 8.9 & 0.838 $\pm$ 0.058 & 0.856 $\pm$ 0.092 & 0.789 $\pm$ 0.092 & 0.816 $\pm$ 0.068 & 0.908 $\pm$ 0.053 \\
+RFE (k = BPSO) & 8.0 & 0.831 $\pm$ 0.058 & 0.850 $\pm$ 0.081 & 0.776 $\pm$ 0.101 & 0.806 $\pm$ 0.072 & 0.897 $\pm$ 0.053 \\
+L1-LogReg & 11.2 & 0.837 $\pm$ 0.061 & 0.854 $\pm$ 0.094 & 0.789 $\pm$ 0.095 & 0.815 $\pm$ 0.071 & 0.905 $\pm$ 0.051 \\
+Random (k = BPSO) & 8.0 & 0.807 $\pm$ 0.078 & 0.810 $\pm$ 0.097 & 0.764 $\pm$ 0.112 & 0.782 $\pm$ 0.090 & 0.885 $\pm$ 0.062 \\
+\bottomrule
+\end{tabular}
+\end{table*}

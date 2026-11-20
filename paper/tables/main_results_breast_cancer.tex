@@ -1,0 +1,23 @@
+\begin{table*}[!t]
+\centering
+\caption{Test performance on Breast Cancer (WDBC) with SVM (RBF) (mean $\pm$ std over 5 seeds $\times$ 10 outer folds). Best mean in bold.}
+\label{tab:results_breast_cancer}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrccccc}
+\toprule
+\textbf{Method} & \textbf{\#Feat.} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+All features & 30.0 & 0.973 $\pm$ 0.017 & 0.962 $\pm$ 0.035 & \textbf{0.966} $\pm$ 0.038 & 0.963 $\pm$ 0.024 & \textbf{0.996} $\pm$ 0.008 \\
+BPSO (proposed) & 14.7 & 0.967 $\pm$ 0.021 & 0.962 $\pm$ 0.039 & 0.952 $\pm$ 0.047 & 0.956 $\pm$ 0.029 & 0.994 $\pm$ 0.009 \\
+Binary GA & 12.0 & 0.967 $\pm$ 0.022 & 0.960 $\pm$ 0.044 & 0.953 $\pm$ 0.049 & 0.955 $\pm$ 0.029 & 0.994 $\pm$ 0.009 \\
+MI (k = BPSO) & 15.0 & 0.947 $\pm$ 0.035 & 0.941 $\pm$ 0.049 & 0.918 $\pm$ 0.073 & 0.928 $\pm$ 0.051 & 0.990 $\pm$ 0.012 \\
+MI (k by CV) & 24.3 & \textbf{0.975} $\pm$ 0.018 & \textbf{0.969} $\pm$ 0.032 & 0.964 $\pm$ 0.040 & \textbf{0.966} $\pm$ 0.025 & 0.996 $\pm$ 0.008 \\
+ANOVA-F (k = BPSO) & 15.0 & 0.947 $\pm$ 0.035 & 0.941 $\pm$ 0.049 & 0.918 $\pm$ 0.073 & 0.928 $\pm$ 0.051 & 0.990 $\pm$ 0.012 \\
+ANOVA-F (k by CV) & 24.2 & 0.973 $\pm$ 0.018 & 0.964 $\pm$ 0.034 & 0.965 $\pm$ 0.038 & 0.964 $\pm$ 0.025 & 0.996 $\pm$ 0.008 \\
+RFE (k = BPSO) & 15.0 & 0.967 $\pm$ 0.021 & 0.963 $\pm$ 0.039 & 0.949 $\pm$ 0.047 & 0.955 $\pm$ 0.029 & 0.995 $\pm$ 0.009 \\
+L1-LogReg & 14.1 & 0.972 $\pm$ 0.019 & 0.966 $\pm$ 0.036 & 0.961 $\pm$ 0.046 & 0.962 $\pm$ 0.026 & 0.995 $\pm$ 0.007 \\
+Random (k = BPSO) & 15.0 & 0.962 $\pm$ 0.022 & 0.955 $\pm$ 0.039 & 0.945 $\pm$ 0.052 & 0.949 $\pm$ 0.031 & 0.993 $\pm$ 0.009 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,25 @@
+\begin{table}[!t]
+\centering
+\caption{Sensitivity of BPSO to the fitness weight $\alpha$ (headline classifier per dataset; 2 seed(s) $\times$ all outer folds).}
+\label{tab:alpha}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Dataset} & \textbf{\$\textbackslash{}alpha\$} & \textbf{Selected} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+Breast Cancer (WDBC) & 0.80 & 4.95 $\pm$ 0.83 & 0.942 $\pm$ 0.030 & 0.988 $\pm$ 0.013 \\
+Breast Cancer (WDBC) & 0.90 & 6.75 $\pm$ 1.21 & 0.953 $\pm$ 0.028 & 0.993 $\pm$ 0.009 \\
+Breast Cancer (WDBC) & 0.95 & 9.90 $\pm$ 1.80 & 0.959 $\pm$ 0.019 & 0.995 $\pm$ 0.007 \\
+Breast Cancer (WDBC) & 0.99 & 14.25 $\pm$ 2.31 & 0.961 $\pm$ 0.018 & 0.995 $\pm$ 0.007 \\
+Heart Disease (Cleveland) & 0.80 & 3.30 $\pm$ 0.47 & 0.783 $\pm$ 0.081 & 0.879 $\pm$ 0.045 \\
+Heart Disease (Cleveland) & 0.90 & 3.95 $\pm$ 0.60 & 0.790 $\pm$ 0.049 & 0.892 $\pm$ 0.049 \\
+Heart Disease (Cleveland) & 0.95 & 5.00 $\pm$ 1.26 & 0.796 $\pm$ 0.054 & 0.890 $\pm$ 0.053 \\
+Heart Disease (Cleveland) & 0.99 & 7.70 $\pm$ 1.59 & 0.808 $\pm$ 0.068 & 0.903 $\pm$ 0.050 \\
+Pima Diabetes & 0.80 & 1.00 $\pm$ 0.00 & 0.574 $\pm$ 0.081 & 0.791 $\pm$ 0.057 \\
+Pima Diabetes & 0.90 & 2.05 $\pm$ 0.39 & 0.602 $\pm$ 0.084 & 0.818 $\pm$ 0.054 \\
+Pima Diabetes & 0.95 & 2.65 $\pm$ 0.59 & 0.609 $\pm$ 0.096 & 0.818 $\pm$ 0.053 \\
+Pima Diabetes & 0.99 & 4.60 $\pm$ 1.05 & 0.616 $\pm$ 0.080 & 0.822 $\pm$ 0.049 \\
+\bottomrule
+\end{tabular}
+\end{table}

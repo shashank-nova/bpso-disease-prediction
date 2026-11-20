@@ -1,0 +1,41 @@
+\begin{table}[!t]
+\centering
+\caption{Features most frequently selected by BPSO across all outer folds and seeds (top 10).}
+\label{tab:top_features}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrlr}
+\toprule
+\textbf{Dataset} & \textbf{Rank} & \textbf{Feature} & \textbf{Frequency} \\
+\midrule
+Breast Cancer (WDBC) & 1 & \texttt{worst\_smoothness} & 0.90 \\
+ & 2 & \texttt{worst\_symmetry} & 0.84 \\
+ & 3 & \texttt{area\_error} & 0.76 \\
+ & 4 & \texttt{worst\_concavity} & 0.72 \\
+ & 5 & \texttt{mean\_texture} & 0.64 \\
+ & 6 & \texttt{radius\_error} & 0.60 \\
+ & 7 & \texttt{worst\_area} & 0.58 \\
+ & 8 & \texttt{mean\_concave\_points} & 0.56 \\
+ & 9 & \texttt{worst\_concave\_points} & 0.56 \\
+ & 10 & \texttt{worst\_radius} & 0.54 \\
+Heart Disease (Cleveland) & 1 & \texttt{ca} & 1.00 \\
+ & 2 & \texttt{thal} & 1.00 \\
+ & 3 & \texttt{cp} & 0.82 \\
+ & 4 & \texttt{thalach} & 0.76 \\
+ & 5 & \texttt{sex} & 0.68 \\
+ & 6 & \texttt{trestbps} & 0.60 \\
+ & 7 & \texttt{oldpeak} & 0.56 \\
+ & 8 & \texttt{exang} & 0.54 \\
+ & 9 & \texttt{fbs} & 0.50 \\
+ & 10 & \texttt{restecg} & 0.46 \\
+Pima Diabetes & 1 & \texttt{Glucose} & 1.00 \\
+ & 2 & \texttt{BMI} & 1.00 \\
+ & 3 & \texttt{DiabetesPedigreeFunction} & 0.84 \\
+ & 4 & \texttt{Insulin} & 0.62 \\
+ & 5 & \texttt{Age} & 0.54 \\
+ & 6 & \texttt{SkinThickness} & 0.32 \\
+ & 7 & \texttt{BloodPressure} & 0.28 \\
+ & 8 & \texttt{Pregnancies} & 0.22 \\
+\bottomrule
+\end{tabular}
+\end{table}

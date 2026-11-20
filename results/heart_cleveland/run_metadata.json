@@ -1,0 +1,139 @@
+{
+  "dataset": "heart_cleveland",
+  "timestamp_utc": "2026-11-20T19:59:46.852750+00:00",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "cpu_count": "2",
+    "xgboost": "3.4.1"
+  },
+  "config": {
+    "experiment": {
+      "name": "reduced",
+      "results_dir": "results",
+      "datasets": [
+        "breast_cancer",
+        "pima_diabetes",
+        "heart_cleveland"
+      ],
+      "n_seeds": 5,
+      "seed_offset": 0,
+      "outer_folds": 10,
+      "n_jobs": -1
+    },
+    "fitness": {
+      "alpha": 0.99,
+      "estimator": "logreg",
+      "inner_folds": 5,
+      "metric": "accuracy"
+    },
+    "bpso": {
+      "n_particles": 20,
+      "n_iterations": 50,
+      "inertia": "linear",
+      "w": 0.7298,
+      "w_max": 0.9,
+      "w_min": 0.4,
+      "c1": 2.0,
+      "c2": 2.0,
+      "v_max": 6.0,
+      "transfer_function": "sigmoid",
+      "init_prob": 0.5,
+      "empty_subset": "repair",
+      "early_stopping_patience": null,
+      "n_jobs": 1
+    },
+    "ga": {
+      "crossover_rate": 0.9,
+      "mutation_rate": null,
+      "tournament_size": 3,
+      "n_elite": 1
+    },
+    "methods": [
+      "all",
+      "bpso",
+      "ga",
+      "mi_k",
+      "mi_cv",
+      "anova_k",
+      "anova_cv",
+      "rfe_k",
+      "l1",
+      "random_k"
+    ],
+    "classifiers": [
+      "logreg",
+      "svm",
+      "rf",
+      "knn",
+      "nb",
+      "xgb"
+    ],
+    "use_xgboost": true,
+    "tune_classifiers": false,
+    "alpha_sweep": {
+      "enabled": true,
+      "alphas": [
+        0.8,
+        0.9,
+        0.95,
+        0.99
+      ],
+      "n_seeds": 2,
+      "classifiers": [
+        "logreg",
+        "svm",
+        "rf",
+        "knn",
+        "nb",
+        "xgb"
+      ]
+    },
+    "reporting": {
+      "reference_method": "bpso",
+      "primary_metric": "f1",
+      "report_classifier": "auto",
+      "tuning_scoring": "roc_auc",
+      "figures_dir": "paper/figures",
+      "tables_dir": "paper/tables"
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "outer_folds": 10,
+  "classifiers": [
+    "logreg",
+    "svm",
+    "rf",
+    "knn",
+    "nb",
+    "xgb"
+  ],
+  "methods": [
+    "all",
+    "bpso",
+    "ga",
+    "mi_k",
+    "mi_cv",
+    "anova_k",
+    "anova_cv",
+    "rfe_k",
+    "l1",
+    "random_k"
+  ],
+  "k_median_bpso": 8,
+  "wall_time_seconds_this_invocation": 676.4196889400482,
+  "data_source": "https://raw.githubusercontent.com/rashida048/Datasets/master/Heart.csv"
+}
