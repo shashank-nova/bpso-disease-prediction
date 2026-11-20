@@ -1,6 +1,7 @@
 % =====================================================================
 % Methodology snippets -- these equations match src/bpso_fs/ exactly.
-% Required packages: amsmath, algorithm, algpseudocode (algorithmicx)
+% Required packages: amsmath, amssymb, algorithm, algpseudocode (algorithmicx).
+% The generated tables in paper/tables/ also need booktabs and adjustbox.
 %   \usepackage{amsmath}
 %   \usepackage{algorithm}
 %   \usepackage{algpseudocode}
@@ -27,13 +28,15 @@ performance against subset size ($\alpha = 0.99$ by default). An empty subset
 Each particle $i$ has a binary position $x_i^t \in \{0,1\}^d$ and a real
 velocity $v_i^t \in \mathbb{R}^d$. With personal best $p_i$ and global best $g$,
 \begin{equation}
-v_{ij}^{t+1} = w^{t} v_{ij}^{t}
-  + c_1 r_{1j}\bigl(p_{ij} - x_{ij}^{t}\bigr)
-  + c_2 r_{2j}\bigl(g_{j} - x_{ij}^{t}\bigr),
-\qquad r_{1j}, r_{2j} \sim \mathcal{U}(0,1),
+\begin{split}
+v_{ij}^{t+1} = {} & w^{t} v_{ij}^{t}
+  + c_1 r_{1j}\bigl(p_{ij} - x_{ij}^{t}\bigr) \\
+  & + c_2 r_{2j}\bigl(g_{j} - x_{ij}^{t}\bigr),
+\end{split}
 \label{eq:velocity}
 \end{equation}
-after which each component is clipped to $[-v_{\max}, v_{\max}]$.
+where $r_{1j}, r_{2j} \sim \mathcal{U}(0,1)$; each component is then clipped to
+$[-v_{\max}, v_{\max}]$.
 The inertia weight decreases linearly over the $T$ iterations,
 \begin{equation}
 w^{t} = w_{\max} - (w_{\max} - w_{\min})\,\frac{t}{T-1},

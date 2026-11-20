@@ -109,7 +109,7 @@ paper/figures/  *.pdf (for LaTeX), *.png
 
 Tables: `dataset_summary`, `bpso_hyperparameters`, `main_results_<dataset>`, `classifier_comparison`, `subset_sizes`,
 `top_features`, `statistical_tests`, `friedman_ranks`, `runtime`, `alpha_sensitivity`.
-They need `\usepackage{booktabs}`. The headline classifier of each `main_results_<dataset>` table is chosen
+They need `\usepackage{booktabs}` and `\usepackage{adjustbox}` (wide tables shrink to fit the column automatically). All tables were test-compiled with pdflatex. The headline classifier of each `main_results_<dataset>` table is chosen
 automatically as the classifier with the best mean ROC-AUC for BPSO on that dataset
 (`paper/tables/report_classifiers.json`); override with `--report-classifier logreg`. Results for every classifier are
 in `classifier_comparison` and `results_all_classifiers.csv`.

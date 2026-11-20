@@ -4,9 +4,10 @@
 \label{tab:stats}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llcccccc}
 \toprule
-\textbf{Dataset} & \textbf{BPSO vs.} & \textbf{\$\textbackslash{}Delta\$F1} & \textbf{F1 W/T/L} & \textbf{F1 \$p\_\textbackslash{}mathrm\{Holm\}\$} & \textbf{\$\textbackslash{}Delta\$ROC-AUC} & \textbf{ROC-AUC W/T/L} & \textbf{ROC-AUC \$p\_\textbackslash{}mathrm\{Holm\}\$} \\
+\textbf{Dataset} & \textbf{BPSO vs.} & \textbf{$\Delta$F1} & \textbf{F1 W/T/L} & \textbf{F1 $p_\mathrm{Holm}$} & \textbf{$\Delta$ROC-AUC} & \textbf{ROC-AUC W/T/L} & \textbf{ROC-AUC $p_\mathrm{Holm}$} \\
 \midrule
 Breast Cancer (WDBC) & All features & -0.008 & 8/24/18 & 0.062 & -0.002 & 6/19/25 & \textbf{0.006} \\
 Breast Cancer (WDBC) & Binary GA & +0.001 & 17/19/14 & 1.000 & -0.000 & 13/20/17 & 0.845 \\
@@ -37,4 +38,5 @@ Pima Diabetes & L1-LogReg & -0.014 & 15/5/30 & 0.227 & -0.009 & 14/2/34 & \textb
 Pima Diabetes & Random (k = BPSO) & +0.068 & 33/3/14 & \textbf{0.001} & +0.040 & 37/0/13 & \textbf{$<$0.001} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table*}

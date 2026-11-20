@@ -4,9 +4,10 @@
 \label{tab:subset_sizes}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llrccc}
 \toprule
-\textbf{Dataset} & \textbf{Method} & \textbf{\$d\$} & \textbf{Selected} & \textbf{Reduction (\textbackslash{}\%)} & \textbf{Jaccard} \\
+\textbf{Dataset} & \textbf{Method} & \textbf{$d$} & \textbf{Selected} & \textbf{Reduction (\%)} & \textbf{Jaccard} \\
 \midrule
 Breast Cancer (WDBC) & All features & 30 & 30.00 $\pm$ 0.00 & 0.0 & 1.000 \\
 Breast Cancer (WDBC) & BPSO (proposed) & 30 & 14.68 $\pm$ 2.17 & 51.1 & 0.369 \\
@@ -40,4 +41,5 @@ Pima Diabetes & L1-LogReg & 8 & 6.52 $\pm$ 1.59 & 18.5 & 0.753 \\
 Pima Diabetes & Random (k = BPSO) & 8 & 5.00 $\pm$ 0.00 & 37.5 & 0.467 \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table*}

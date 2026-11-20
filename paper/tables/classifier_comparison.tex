@@ -4,6 +4,7 @@
 \label{tab:classifiers}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llcccccc}
 \toprule
 \textbf{Dataset} & \textbf{Classifier} & \textbf{All features F1} & \textbf{All features AUC} & \textbf{BPSO (proposed) F1} & \textbf{BPSO (proposed) AUC} & \textbf{Binary GA F1} & \textbf{Binary GA AUC} \\
@@ -28,4 +29,5 @@ Pima Diabetes & SVM (RBF) & 0.610 $\pm$ 0.084 & 0.828 $\pm$ 0.050 & 0.601 $\pm$ 
 Pima Diabetes & XGBoost & 0.637 $\pm$ 0.074 & 0.825 $\pm$ 0.052 & 0.620 $\pm$ 0.085 & 0.813 $\pm$ 0.058 & 0.621 $\pm$ 0.086 & 0.813 $\pm$ 0.058 \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table*}

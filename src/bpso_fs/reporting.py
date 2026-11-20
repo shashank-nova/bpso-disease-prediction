@@ -84,6 +84,12 @@ def tex_escape(s: str) -> str:
     return "".join(rep.get(c, c) for c in str(s))
 
 
+def _header(c: str) -> str:
+    """Column headers that already contain LaTeX ($...$ or a backslash) are kept verbatim."""
+    c = str(c)
+    return c if ("$" in c or "\\" in c) else tex_escape(c)
+
+
 def pm(mean: float, std: float, digits: int = 3) -> str:
     if pd.isna(mean):
         return "--"
@@ -92,17 +98,22 @@ def pm(mean: float, std: float, digits: int = 3) -> str:
 
 def latex_table(df: pd.DataFrame, caption: str, label: str, colfmt: str | None = None,
                 notes: str | None = None, wide: bool = False, escape_cells: bool = False) -> str:  # fmt: skip
-    """booktabs table; cells may already contain LaTeX (escape_cells=False)."""
+    """booktabs table; cells may already contain LaTeX (escape_cells=False).
+
+    Needs ``booktabs`` and ``adjustbox``; the tabular is shrunk to the line width only if it
+    would not fit otherwise.
+    """
     env = "table*" if wide else "table"
     colfmt = colfmt or ("l" + "c" * (df.shape[1] - 1))
     lines = [f"\\begin{{{env}}}[!t]", "\\centering", f"\\caption{{{caption}}}", f"\\label{{{label}}}",
-             "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}", f"\\begin{{tabular}}{{{colfmt}}}",
-             "\\toprule", " & ".join(f"\\textbf{{{tex_escape(c)}}}" for c in df.columns) + " \\\\",
+             "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}", "\\begin{adjustbox}{max width=\\linewidth}",
+             f"\\begin{{tabular}}{{{colfmt}}}",
+             "\\toprule", " & ".join(f"\\textbf{{{_header(c)}}}" for c in df.columns) + " \\\\",
              "\\midrule"]  # fmt: skip
     for _, row in df.iterrows():
         cells = [tex_escape(v) if escape_cells else str(v) for v in row.tolist()]
         lines.append(" & ".join(cells) + " \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}"]
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{adjustbox}"]
     if notes:
         lines.append(f"\\par\\vspace{{2pt}}\\parbox{{\\linewidth}}{{\\scriptsize {notes}}}")
     lines.append(f"\\end{{{env}}}")
@@ -189,15 +200,14 @@ def make_all_tables(
         s = res["summary"]
         rows.append({
             "Dataset": DATASET_LABELS.get(s["name"], s["name"]),
-            "Samples": s["n_samples"],
-            "Features": s["n_features"],
-            "Positive (disease)": f"{s['n_positive']} ({100 * s['positive_rate']:.1f}%)",
+            "n": s["n_samples"],
+            "d": s["n_features"],
+            "Disease (%)": f"{s['n_positive']} ({100 * s['positive_rate']:.1f})",
             "Missing cells": s["n_missing_cells"],
-            "Rows w/ missing": s["n_rows_with_missing"],
         })  # fmt: skip
     df = pd.DataFrame(rows)
     write_table(df.map(tex_escape), df, out("dataset_summary"), caption="Summary of the datasets used.",
-                label="tab:datasets", colfmt="lrrrrr")  # fmt: skip
+                label="tab:datasets", colfmt="lrrrr")  # fmt: skip
 
     # 2. BPSO hyper-parameters actually used -------------------------------
     cfg = results[0]["meta"]["config"]
