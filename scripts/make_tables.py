@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Build every paper table (.tex + .csv + .md) from the files in results/."""
+"""Build every paper table (.tex + .csv) from the files in results/."""
 
 from __future__ import annotations
 

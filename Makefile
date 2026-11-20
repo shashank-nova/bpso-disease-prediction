@@ -16,11 +16,11 @@ RESULTS ?= $(if $(QUICK),results_quick,results)
 FIGURES ?= $(if $(QUICK),results_quick/figures,paper/figures)
 TABLES ?= $(if $(QUICK),results_quick/tables,paper/tables)
 
-.PHONY: setup data experiments figures tables test lint format all clean
+.PHONY: setup data experiments figures tables test lint format all clean model serve showcase
 
 setup:
 	$(PYTHON) -m pip install -r requirements.txt
-	$(PYTHON) -m pip install -e .
+	$(PYTHON) -m pip install -e ".[serve,dev]"
 
 data:
 	$(PYTHON) scripts/download_data.py
@@ -46,6 +46,15 @@ format:
 	black src scripts tests
 
 all: data experiments figures tables
+
+model:
+	$(PYTHON) scripts/train_model.py --config configs/reduced.yaml --dataset breast_cancer --output models/disease_model.joblib
+
+serve:
+	$(PYTHON) -m uvicorn bpso_fs.api:app --host 0.0.0.0 --port 8000
+
+showcase:
+	$(PYTHON) -m streamlit run app.py
 
 clean:
 	rm -rf $(RESULTS)/*/runs
