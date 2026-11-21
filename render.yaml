@@ -1,0 +1,30 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Deploys the FastAPI inference API and the Streamlit showcase from the same Dockerfile.
+services:
+  - type: web
+    name: bpso-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    # Trains the reduced demo model (~15 s) and then starts uvicorn on $PORT.
+    dockerCommand: python scripts/start_api.py
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: BPSO_MODEL
+        value: /tmp/disease_model.joblib
+
+  - type: web
+    name: bpso-showcase
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerCommand: sh -c "streamlit run app.py --server.address=0.0.0.0 --server.port=${PORT:-10000} --server.headless=true"
+    autoDeploy: true
+    envVars:
+      # Free services cannot receive private-network traffic, so the dashboard calls the
+      # API's public URL. If Render gives the API a different URL, update these two values.
+      - key: BPSO_API_URL
+        value: https://bpso-api.onrender.com
+      - key: BPSO_API_DOCS_URL
+        value: https://bpso-api.onrender.com/docs
