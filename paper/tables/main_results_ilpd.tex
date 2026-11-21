@@ -1,0 +1,25 @@
+\begin{table*}[!t]
+\centering
+\caption{Test performance on Indian Liver Patient with Logistic Regression (mean $\pm$ std over 5 seeds $\times$ 10 outer folds). Best mean in bold.}
+\label{tab:results_ilpd}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrccccc}
+\toprule
+\textbf{Method} & \textbf{\#Feat.} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+All features & 10.0 & 0.722 $\pm$ 0.036 & \textbf{0.747} $\pm$ 0.025 & 0.926 $\pm$ 0.043 & 0.826 $\pm$ 0.024 & \textbf{0.751} $\pm$ 0.060 \\
+BPSO (proposed) & 4.2 & 0.723 $\pm$ 0.037 & 0.737 $\pm$ 0.022 & 0.951 $\pm$ 0.039 & 0.830 $\pm$ 0.024 & 0.726 $\pm$ 0.061 \\
+Binary GA & 4.3 & \textbf{0.723} $\pm$ 0.038 & 0.737 $\pm$ 0.023 & 0.952 $\pm$ 0.040 & 0.831 $\pm$ 0.025 & 0.729 $\pm$ 0.064 \\
+MI (k = BPSO) & 4.0 & 0.721 $\pm$ 0.033 & 0.731 $\pm$ 0.022 & 0.965 $\pm$ 0.037 & \textbf{0.831} $\pm$ 0.020 & 0.734 $\pm$ 0.059 \\
+MI (k by CV) & 5.3 & 0.716 $\pm$ 0.029 & 0.733 $\pm$ 0.022 & 0.950 $\pm$ 0.043 & 0.826 $\pm$ 0.019 & 0.734 $\pm$ 0.068 \\
+ANOVA-F (k = BPSO) & 4.0 & 0.709 $\pm$ 0.015 & 0.713 $\pm$ 0.009 & \textbf{0.989} $\pm$ 0.020 & 0.829 $\pm$ 0.010 & 0.720 $\pm$ 0.065 \\
+ANOVA-F (k by CV) & 6.4 & 0.713 $\pm$ 0.028 & 0.730 $\pm$ 0.023 & 0.951 $\pm$ 0.048 & 0.825 $\pm$ 0.019 & 0.726 $\pm$ 0.068 \\
+RFE (k = BPSO) & 4.0 & 0.708 $\pm$ 0.012 & 0.713 $\pm$ 0.009 & 0.988 $\pm$ 0.017 & 0.828 $\pm$ 0.008 & 0.735 $\pm$ 0.066 \\
+L1-LogReg & 8.7 & 0.719 $\pm$ 0.032 & 0.741 $\pm$ 0.022 & 0.934 $\pm$ 0.046 & 0.826 $\pm$ 0.022 & 0.740 $\pm$ 0.059 \\
+Random (k = BPSO) & 4.0 & 0.709 $\pm$ 0.016 & 0.720 $\pm$ 0.013 & 0.970 $\pm$ 0.028 & 0.826 $\pm$ 0.011 & 0.710 $\pm$ 0.064 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table*}

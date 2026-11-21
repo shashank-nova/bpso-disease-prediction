@@ -1,5 +1,7 @@
 {
   "breast_cancer": "svm",
+  "ckd": "rf",
   "heart_cleveland": "logreg",
+  "ilpd": "logreg",
   "pima_diabetes": "logreg"
 }

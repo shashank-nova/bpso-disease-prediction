@@ -1,31 +1,51 @@
 Dataset,Method,Selection time s (mean ± std),Unique subsets evaluated
-Breast Cancer (WDBC),All features,0.009 ± 0.002,
-Breast Cancer (WDBC),BPSO (proposed),11.971 ± 1.736,1020
-Breast Cancer (WDBC),Binary GA,8.777 ± 2.958,644
-Breast Cancer (WDBC),MI (k = BPSO),0.075 ± 0.010,
-Breast Cancer (WDBC),MI (k by CV),0.726 ± 0.053,
-Breast Cancer (WDBC),ANOVA-F (k = BPSO),0.009 ± 0.002,
-Breast Cancer (WDBC),ANOVA-F (k by CV),0.352 ± 0.030,
-Breast Cancer (WDBC),RFE (k = BPSO),0.048 ± 0.010,
-Breast Cancer (WDBC),L1-LogReg,0.381 ± 0.056,
-Breast Cancer (WDBC),Random (k = BPSO),0.018 ± 0.005,
-Heart Disease (Cleveland),All features,0.017 ± 0.005,
-Heart Disease (Cleveland),BPSO (proposed),7.038 ± 0.448,786
-Heart Disease (Cleveland),Binary GA,3.482 ± 0.442,372
-Heart Disease (Cleveland),MI (k = BPSO),0.043 ± 0.009,
-Heart Disease (Cleveland),MI (k by CV),0.277 ± 0.050,
-Heart Disease (Cleveland),ANOVA-F (k = BPSO),0.017 ± 0.003,
-Heart Disease (Cleveland),ANOVA-F (k by CV),0.143 ± 0.038,
-Heart Disease (Cleveland),RFE (k = BPSO),0.024 ± 0.004,
-Heart Disease (Cleveland),L1-LogReg,0.091 ± 0.013,
-Heart Disease (Cleveland),Random (k = BPSO),0.015 ± 0.003,
-Pima Diabetes,All features,0.009 ± 0.003,
-Pima Diabetes,BPSO (proposed),1.891 ± 0.174,190
-Pima Diabetes,Binary GA,1.536 ± 0.235,147
-Pima Diabetes,MI (k = BPSO),0.032 ± 0.005,
-Pima Diabetes,MI (k by CV),0.226 ± 0.041,
-Pima Diabetes,ANOVA-F (k = BPSO),0.009 ± 0.002,
-Pima Diabetes,ANOVA-F (k by CV),0.093 ± 0.019,
-Pima Diabetes,RFE (k = BPSO),0.015 ± 0.002,
-Pima Diabetes,L1-LogReg,0.098 ± 0.019,
-Pima Diabetes,Random (k = BPSO),0.008 ± 0.004,
+Breast Cancer (WDBC),All features,0.007 ± 0.001,
+Breast Cancer (WDBC),BPSO (proposed),8.896 ± 0.565,1020
+Breast Cancer (WDBC),Binary GA,5.580 ± 0.528,644
+Breast Cancer (WDBC),MI (k = BPSO),0.060 ± 0.005,
+Breast Cancer (WDBC),MI (k by CV),0.564 ± 0.028,
+Breast Cancer (WDBC),ANOVA-F (k = BPSO),0.007 ± 0.001,
+Breast Cancer (WDBC),ANOVA-F (k by CV),0.295 ± 0.033,
+Breast Cancer (WDBC),RFE (k = BPSO),0.038 ± 0.006,
+Breast Cancer (WDBC),L1-LogReg,0.143 ± 0.011,
+Breast Cancer (WDBC),Random (k = BPSO),0.007 ± 0.002,
+Chronic Kidney Disease,All features,0.019 ± 0.005,
+Chronic Kidney Disease,BPSO (proposed),7.289 ± 0.206,1019
+Chronic Kidney Disease,Binary GA,4.169 ± 0.428,569
+Chronic Kidney Disease,MI (k = BPSO),0.051 ± 0.004,
+Chronic Kidney Disease,MI (k by CV),0.381 ± 0.012,
+Chronic Kidney Disease,ANOVA-F (k = BPSO),0.019 ± 0.003,
+Chronic Kidney Disease,ANOVA-F (k by CV),0.188 ± 0.007,
+Chronic Kidney Disease,RFE (k = BPSO),0.033 ± 0.004,
+Chronic Kidney Disease,L1-LogReg,0.091 ± 0.009,
+Chronic Kidney Disease,Random (k = BPSO),0.018 ± 0.003,
+Heart Disease (Cleveland),All features,0.013 ± 0.002,
+Heart Disease (Cleveland),BPSO (proposed),5.462 ± 0.475,786
+Heart Disease (Cleveland),Binary GA,2.535 ± 0.284,372
+Heart Disease (Cleveland),MI (k = BPSO),0.030 ± 0.002,
+Heart Disease (Cleveland),MI (k by CV),0.195 ± 0.006,
+Heart Disease (Cleveland),ANOVA-F (k = BPSO),0.014 ± 0.002,
+Heart Disease (Cleveland),ANOVA-F (k by CV),0.096 ± 0.003,
+Heart Disease (Cleveland),RFE (k = BPSO),0.020 ± 0.003,
+Heart Disease (Cleveland),L1-LogReg,0.075 ± 0.005,
+Heart Disease (Cleveland),Random (k = BPSO),0.014 ± 0.002,
+Indian Liver Patient,All features,0.006 ± 0.001,
+Indian Liver Patient,BPSO (proposed),3.032 ± 0.224,425
+Indian Liver Patient,Binary GA,1.771 ± 0.175,254
+Indian Liver Patient,MI (k = BPSO),0.024 ± 0.002,
+Indian Liver Patient,MI (k by CV),0.179 ± 0.007,
+Indian Liver Patient,ANOVA-F (k = BPSO),0.007 ± 0.001,
+Indian Liver Patient,ANOVA-F (k by CV),0.080 ± 0.003,
+Indian Liver Patient,RFE (k = BPSO),0.015 ± 0.002,
+Indian Liver Patient,L1-LogReg,0.098 ± 0.006,
+Indian Liver Patient,Random (k = BPSO),0.006 ± 0.000,
+Pima Diabetes,All features,0.010 ± 0.003,
+Pima Diabetes,BPSO (proposed),1.483 ± 0.104,190
+Pima Diabetes,Binary GA,1.118 ± 0.129,147
+Pima Diabetes,MI (k = BPSO),0.028 ± 0.006,
+Pima Diabetes,MI (k by CV),0.172 ± 0.020,
+Pima Diabetes,ANOVA-F (k = BPSO),0.008 ± 0.002,
+Pima Diabetes,ANOVA-F (k by CV),0.072 ± 0.009,
+Pima Diabetes,RFE (k = BPSO),0.016 ± 0.005,
+Pima Diabetes,L1-LogReg,0.087 ± 0.011,
+Pima Diabetes,Random (k = BPSO),0.007 ± 0.002,

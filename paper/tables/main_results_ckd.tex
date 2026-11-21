@@ -1,0 +1,25 @@
+\begin{table*}[!t]
+\centering
+\caption{Test performance on Chronic Kidney Disease with Random Forest (mean $\pm$ std over 5 seeds $\times$ 10 outer folds). Best mean in bold.}
+\label{tab:results_ckd}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrccccc}
+\toprule
+\textbf{Method} & \textbf{\#Feat.} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+\midrule
+All features & 24.0 & 0.993 $\pm$ 0.014 & 0.992 $\pm$ 0.018 & \textbf{0.997} $\pm$ 0.011 & 0.994 $\pm$ 0.011 & 1.000 $\pm$ 0.001 \\
+BPSO (proposed) & 12.2 & 0.995 $\pm$ 0.014 & 0.995 $\pm$ 0.015 & 0.996 $\pm$ 0.015 & 0.996 $\pm$ 0.011 & 1.000 $\pm$ 0.001 \\
+Binary GA & 10.3 & \textbf{0.996} $\pm$ 0.013 & \textbf{0.998} $\pm$ 0.012 & 0.996 $\pm$ 0.017 & \textbf{0.997} $\pm$ 0.010 & \textbf{1.000} $\pm$ 0.000 \\
+MI (k = BPSO) & 12.0 & 0.990 $\pm$ 0.017 & 0.989 $\pm$ 0.022 & 0.996 $\pm$ 0.012 & 0.992 $\pm$ 0.013 & 0.999 $\pm$ 0.002 \\
+MI (k by CV) & 15.9 & 0.991 $\pm$ 0.017 & 0.990 $\pm$ 0.021 & 0.996 $\pm$ 0.012 & 0.993 $\pm$ 0.013 & 1.000 $\pm$ 0.001 \\
+ANOVA-F (k = BPSO) & 12.0 & 0.992 $\pm$ 0.016 & 0.992 $\pm$ 0.019 & 0.995 $\pm$ 0.013 & 0.994 $\pm$ 0.013 & 0.999 $\pm$ 0.002 \\
+ANOVA-F (k by CV) & 14.8 & 0.993 $\pm$ 0.014 & 0.992 $\pm$ 0.020 & \textbf{0.997} $\pm$ 0.011 & 0.994 $\pm$ 0.011 & 1.000 $\pm$ 0.001 \\
+RFE (k = BPSO) & 12.0 & 0.991 $\pm$ 0.014 & 0.992 $\pm$ 0.018 & 0.994 $\pm$ 0.014 & 0.993 $\pm$ 0.011 & 1.000 $\pm$ 0.001 \\
+L1-LogReg & 15.0 & 0.991 $\pm$ 0.016 & 0.992 $\pm$ 0.019 & 0.994 $\pm$ 0.014 & 0.993 $\pm$ 0.012 & 1.000 $\pm$ 0.001 \\
+Random (k = BPSO) & 12.0 & 0.980 $\pm$ 0.026 & 0.986 $\pm$ 0.025 & 0.983 $\pm$ 0.031 & 0.984 $\pm$ 0.021 & 0.997 $\pm$ 0.006 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table*}

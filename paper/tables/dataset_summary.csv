@@ -1,4 +1,6 @@
 Dataset,n,d,Disease (%),Missing cells
 Breast Cancer (WDBC),569,30,212 (37.3),0
+Chronic Kidney Disease,400,24,250 (62.5),1013
 Heart Disease (Cleveland),303,13,139 (45.9),6
+Indian Liver Patient,583,10,416 (71.4),4
 Pima Diabetes,768,8,268 (34.9),652

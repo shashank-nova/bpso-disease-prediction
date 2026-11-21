@@ -3,10 +3,18 @@ Breast Cancer (WDBC),0.8,svm,4.95 ± 0.83,0.9417 ± 0.0303,0.9885 ± 0.0127
 Breast Cancer (WDBC),0.9,svm,6.75 ± 1.21,0.9527 ± 0.0276,0.9932 ± 0.0089
 Breast Cancer (WDBC),0.95,svm,9.90 ± 1.80,0.9595 ± 0.0191,0.9955 ± 0.0069
 Breast Cancer (WDBC),0.99,svm,14.25 ± 2.31,0.9610 ± 0.0175,0.9951 ± 0.0068
+Chronic Kidney Disease,0.8,rf,3.85 ± 0.75,0.9771 ± 0.0280,0.9905 ± 0.0142
+Chronic Kidney Disease,0.9,rf,6.30 ± 0.98,0.9870 ± 0.0184,0.9990 ± 0.0025
+Chronic Kidney Disease,0.95,rf,7.70 ± 1.22,0.9949 ± 0.0114,1.0000 ± 0.0000
+Chronic Kidney Disease,0.99,rf,12.20 ± 2.12,0.9990 ± 0.0044,1.0000 ± 0.0000
 Heart Disease (Cleveland),0.8,logreg,3.30 ± 0.47,0.7827 ± 0.0811,0.8792 ± 0.0451
 Heart Disease (Cleveland),0.9,logreg,3.95 ± 0.60,0.7902 ± 0.0485,0.8916 ± 0.0486
 Heart Disease (Cleveland),0.95,logreg,5.00 ± 1.26,0.7956 ± 0.0540,0.8899 ± 0.0529
-Heart Disease (Cleveland),0.99,logreg,7.70 ± 1.59,0.8076 ± 0.0675,0.9032 ± 0.0503
+Heart Disease (Cleveland),0.99,logreg,7.70 ± 1.59,0.8076 ± 0.0675,0.9033 ± 0.0503
+Indian Liver Patient,0.8,logreg,1.00 ± 0.00,0.8316 ± 0.0060,0.6084 ± 0.0752
+Indian Liver Patient,0.9,logreg,1.40 ± 0.50,0.8329 ± 0.0085,0.6474 ± 0.0636
+Indian Liver Patient,0.95,logreg,2.80 ± 0.77,0.8306 ± 0.0168,0.7107 ± 0.0639
+Indian Liver Patient,0.99,logreg,4.15 ± 1.27,0.8316 ± 0.0200,0.7238 ± 0.0651
 Pima Diabetes,0.8,logreg,1.00 ± 0.00,0.5738 ± 0.0815,0.7911 ± 0.0572
 Pima Diabetes,0.9,logreg,2.05 ± 0.39,0.6016 ± 0.0836,0.8182 ± 0.0542
 Pima Diabetes,0.95,logreg,2.65 ± 0.59,0.6088 ± 0.0956,0.8177 ± 0.0531

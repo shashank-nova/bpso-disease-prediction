@@ -6,9 +6,19 @@ Breast Cancer (WDBC),4,worst_concavity,0.720
 Breast Cancer (WDBC),5,mean_texture,0.640
 Breast Cancer (WDBC),6,radius_error,0.600
 Breast Cancer (WDBC),7,worst_area,0.580
-Breast Cancer (WDBC),8,mean_concave_points,0.560
-Breast Cancer (WDBC),9,worst_concave_points,0.560
+Breast Cancer (WDBC),8,worst_concave_points,0.560
+Breast Cancer (WDBC),9,mean_concave_points,0.560
 Breast Cancer (WDBC),10,worst_radius,0.540
+Chronic Kidney Disease,1,sg,1.000
+Chronic Kidney Disease,2,hemo,1.000
+Chronic Kidney Disease,3,appet,0.880
+Chronic Kidney Disease,4,dm,0.880
+Chronic Kidney Disease,5,htn,0.840
+Chronic Kidney Disease,6,pe,0.780
+Chronic Kidney Disease,7,sc,0.700
+Chronic Kidney Disease,8,bgr,0.680
+Chronic Kidney Disease,9,pcv,0.600
+Chronic Kidney Disease,10,su,0.560
 Heart Disease (Cleveland),1,ca,1.000
 Heart Disease (Cleveland),2,thal,1.000
 Heart Disease (Cleveland),3,cp,0.820
@@ -18,7 +28,17 @@ Heart Disease (Cleveland),6,trestbps,0.600
 Heart Disease (Cleveland),7,oldpeak,0.560
 Heart Disease (Cleveland),8,exang,0.540
 Heart Disease (Cleveland),9,fbs,0.500
-Heart Disease (Cleveland),10,restecg,0.460
+Heart Disease (Cleveland),10,age,0.460
+Indian Liver Patient,1,Age,1.000
+Indian Liver Patient,2,Sgpt,0.860
+Indian Liver Patient,3,Alkphos,0.560
+Indian Liver Patient,4,TB,0.420
+Indian Liver Patient,5,Sgot,0.380
+Indian Liver Patient,6,TP,0.340
+Indian Liver Patient,7,ALB,0.220
+Indian Liver Patient,8,DB,0.180
+Indian Liver Patient,9,Gender,0.140
+Indian Liver Patient,10,AG_Ratio,0.120
 Pima Diabetes,1,Glucose,1.000
 Pima Diabetes,2,BMI,1.000
 Pima Diabetes,3,DiabetesPedigreeFunction,0.840
