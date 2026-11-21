@@ -19,9 +19,18 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    dockerCommand: sh -c "streamlit run app.py --server.address=0.0.0.0 --server.port=${PORT:-10000} --server.headless=true"
+    # No shell here: Streamlit reads its address/port from the STREAMLIT_* variables below.
+    dockerCommand: streamlit run app.py
     autoDeploy: true
     envVars:
+      - key: PORT
+        value: "10000"
+      - key: STREAMLIT_SERVER_PORT
+        value: "10000"
+      - key: STREAMLIT_SERVER_ADDRESS
+        value: 0.0.0.0
+      - key: STREAMLIT_SERVER_HEADLESS
+        value: "true"
       # Free services cannot receive private-network traffic, so the dashboard calls the
       # API's public URL. If Render gives the API a different URL, update these two values.
       - key: BPSO_API_URL
